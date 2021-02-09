@@ -22,26 +22,10 @@ Route::get('/', function () {
 });
 
 
-route::get('/login', [HomeController::class, 'index']);
-route::post('/login', [HomeController::class, 'store']);
+route::get('/register', [HomeController::class, 'create']);
+route::post('/register', [HomeController::class, 'store']);
+route::get('/home', [HomeController::class, 'index']);
+route::get('/home/userlist', [HomeController::class, 'userlist']);
+route::get('/home/edit/{id}', [HomeController::class, 'edit']);
+route::post('/home/edit/{id}', [HomeController::class, 'update']);
 
-
-//Route::get('/login', 'LoginController@index');
-
-
-
-// Route::post('/login', 'LoginController@verify');
-// Route::get('/logout', 'LogoutController@index');
-
-
-// Route::get('/home', 'HomeController@index');
-// Route::get('/home/create', 'HomeController@create');
-// Route::post('/home/create', 'HomeController@store');
-// Route::get('/home/userlist', 'HomeController@userlist');
-// Route::get('/logout', 'LogoutController@index');
-
-// Route::get('/home/edit/{id}', 'HomeController@edit');
-// Route::post('/home/edit/{id}', 'HomeController@update');
-
-// Route::get('/home/delete/{id}', 'HomeController@delete');
-// Route::post('/home/delete/{id}', 'HomeController@destroy');

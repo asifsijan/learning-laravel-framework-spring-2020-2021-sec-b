@@ -5,7 +5,23 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+
+
+
+
+
+
     public function index(){
+
+        $name = "asif";
+        $id = "123";
+
+        return view('home.index', compact('id', 'name'));
+
+    }
+
+
+    public function create(){
 
         return view('home.create');
     }
@@ -14,9 +30,49 @@ class HomeController extends Controller
     public function store(Request $req){
 
         //insert into DB or model...
-        echo $req->username;
 
-       // return redirect('/home/userlist');
+    //     $users = array();
+
+
+         echo $req->username;
+
+    //     for ($i=0; $i <100 ; $i++) { 
+    //         $users[$i] = $req->username;
+    //         break;
+    //     }
+
+    //     print_r($users);
+
+    //    // return redirect('/home/userlist');
+  }
+
+
+    public function edit($id){
+        
+        return view('home.edit')->with('id', $id);
+    }
+
+
+    public function update($id, Request $req){
+
+        //updating DB or model
+        return redirect('/home/userlist');
+    }
+
+    public function userlist(){
+        // db model userlist
+        $userlist = $this->getUserlist();
+        
+        return view('home.list')->with('list', $userlist);
+    }
+
+    public function getUserlist (){
+
+        return [
+                ['id'=>1, 'name'=>'asif', 'email'=> 'sijan@xyz.com', 'password'=>'123'],
+                ['id'=>2, 'name'=>'abc', 'email'=> 'abc@aiub.edu', 'password'=>'456'],
+                ['id'=>3, 'name'=>'xyz', 'email'=> 'xyz@aiub.edu', 'password'=>'789']
+            ];
     }
 
 }
